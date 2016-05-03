@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="yandexMMTaskApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Yandex mm task</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body ng-controller="MainController">
+
+<ul class="tabs">
+    <li ng-class="{selected:isTabActive($index)}" ng-click="selectTab($index)"
+        ng-repeat="tabName in tabs track by $index">
+        {{tabName}}
+    </li>
+</ul>
+
+<label ng-repeat="tabName in tabs track by $index" ng-show="isTabActive($index)">{{tabName}}</label>
+
+<div class="logPanel">
+    <div class="header">
+        <input id="showLog" ng-model="showLog" type="checkbox">
+        <label for="showLog"></label>
+
+        <div ng-click="onCollapseButtonClick">
+        </div>
+        Консоль
+    </div>
+    <div id="log" class="log" ng-show="showLog">
+        <span class="{{logEntry.class}}" ng-repeat="logEntry in logEntries">{{logEntry.text}}</span>
+    </div>
+    <div ng-controller="ConsoleController">
+        <input id="console" type="text" ng-model="consoleText"
+               ng-keydown="onConsoleKeyDown($event)" ng-focus="onConsoleFocus()" ng-blur="onConsoleBlur()">
+        <button ng-click="onConsoleButtonClick()">Выполнить</button>
+    </div>
+</div>
+
+
+<script src="libs/jquery/dist/jquery.js"></script>
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-cookies/angular-cookies.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/main.js"></script>
+<script src="js/services/services.js"></script>
+</body>
+</html>

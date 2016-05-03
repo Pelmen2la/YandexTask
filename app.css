@@ -1,0 +1,93 @@
+body {
+    padding: 10px;
+    color: #666666;
+    font: 14px Helvetica, sans-serif;
+    min-width: 400px;
+}
+.tabs {
+    border-bottom: 4px solid #0072C6;
+    list-style-type: none;
+    width: 100%;
+    height: 20px;
+    padding: 0 3px;
+    margin: 0;
+}
+
+.tabs li {
+    float: left;
+    cursor: pointer;
+    background: #E0E0E0;
+    height: 20px;
+    padding: 0 5px;
+    margin: 0 1px;
+}
+
+.tabs li.selected {
+    color: white;
+    background: #0072C6;
+}
+
+.logPanel {
+    width: 100%;
+    border: 2px solid #0072C6;
+    border-radius: 5px 5px 0 0;
+}
+
+.logPanel .header {
+    height: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.logPanel .header input[type=checkbox] {
+    display: none;
+}
+
+.logPanel .header input[type=checkbox] + label {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 3px;
+    left: 3px;
+    border: 1px solid #666666;
+    border-radius: 8px;
+    cursor: pointer;
+    background: url(resources/sprite.png) -13px 1px no-repeat;
+}
+
+.logPanel .header input[type=checkbox]:checked + label {
+    background-position: -1px 1px;
+}
+
+.logPanel .log {
+    height: 400px;
+    overflow: auto;
+    border-top: 2px solid #0072C6;
+}
+
+.logPanel .log span {
+    display: block;
+}
+
+.logPanel .log span.tabInfo {
+    margin-left: 10px;
+}
+
+.logPanel .log span.with-line-separator {
+    margin-bottom: 10px;
+}
+
+.logPanel .log span.error {
+    color: red;
+}
+
+.logPanel input {
+    width: 80%;
+    box-sizing: border-box;
+    float: left;
+    padding-left: 3px;
+}
+
+.logPanel button {
+    width: 20%;
+}
